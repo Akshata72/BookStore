@@ -104,18 +104,19 @@ namespace RepositoryLayer.Services
 
                 var res = cmd.ExecuteNonQuery();
                 connection.Close();
-                if (res == 0)
+                if (res != 0)
                 {
-                    return "Failed to Remove From Cart";
+                    return "Delete from Cart successfuly";
+                    
                 }
                 else
                 {
-                    return "Delete from Cart successfuly";
+                    return "Failed to Remove From Cart";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -126,8 +127,8 @@ namespace RepositoryLayer.Services
                 SqlCommand cmd = new SqlCommand("SP_UpdateCart", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@UserId", UserId);
-                cmd.Parameters.AddWithValue("@BookQuntity", BookQuntity);
                 cmd.Parameters.AddWithValue("@CartId", CartId);
+                cmd.Parameters.AddWithValue("@BookQuantity", BookQuntity);
                 connection.Open();
                 var result = cmd.ExecuteNonQuery();
                 connection.Close();

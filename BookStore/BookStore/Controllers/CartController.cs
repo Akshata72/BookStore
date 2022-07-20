@@ -38,7 +38,7 @@ namespace BookStore.Controllers
             var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("userId", StringComparison.InvariantCultureIgnoreCase));
             int userId = Int32.Parse(userid.Value);
             var result = this.cartBL.RemoveFromCart(userId, CartId);
-            if (result != null)
+            if (result.ToLower().Contains("success"))
             {
                 return this.Ok(new { success = true, message = "Deleted from cart succsefully." });
             }

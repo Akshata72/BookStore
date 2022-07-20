@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RepositoryLayer.Interface
+namespace BusinessLayer.Interface
 {
-    public interface IAddressRL
+    public interface IAddressBL
     {
-        public AddAddress AddAddress(int UserId,AddAddress addAddress);
+        public AddAddress AddAddress(int UserId, AddAddress addAddress);
         public AddressModel UpdateAddress(AddressModel addressModel, int UserId);
         public string DeleteAddress(int addressId, int UserId);
         List<AddressModel> GetAllAddresses(int UserId);

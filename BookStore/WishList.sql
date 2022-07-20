@@ -1,6 +1,6 @@
 Create Table WishList(
 WishListId int identity Primary Key,
-UserId int not null foreign key (UserId) references BookStore(UserId),
+UserId int Foreign key (UserId)References BookStore(UserId),
 BookId int not null Foreign key (BookId) references Book(BookId));
 
 ---- Creating procedure for Add to WishList -------
@@ -23,7 +23,7 @@ select * from BookStore;
 select * from WishList;
 
 ------SP for Remove From WishList---------
-Alter Procedure Sp_RemoveWishList(@WishListId int,@UserId int)
+create Procedure Sp_RemoveWishList(@WishListId int,@UserId int)
 As
 Begin
    Begin Try

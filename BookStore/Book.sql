@@ -1,4 +1,4 @@
-Create Table Book(
+create Table Book(
 BookId int identity Primary key,
 BookName varchar(255) Not Null,
 AuthorName varchar(255) Not Null,
@@ -13,7 +13,7 @@ UserId int Foreign key References BookStore(UserId));
 
 drop table Book;
 
-Alter Procedure Sp_AddBook(
+create Procedure Sp_AddBook(
     @BookName varchar(255),
     @AuthorName varchar(255),
 	@BookImage varchar(255),
@@ -44,7 +44,7 @@ select * from Book;
 
 
 /***************SP for Update Book***************/
-Alter Procedure Sp_UpdateBook(
+create Procedure Sp_UpdateBook(
     @BookId int,
 	@BookImage varchar(255),
 	@BookDetails varchar(255),

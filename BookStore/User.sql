@@ -1,4 +1,4 @@
-Create database BookStore;
+create database BookStore;
 drop table BookStore;
 
 Create Table BookStore(
@@ -8,6 +8,8 @@ EmailId varchar(255) UNIQUE,
 MobileNumber bigint NOT NULL,
 Password varchar(255) NOT NULL);
 
+
+
 create Procedure sp_UserRegistration @FullName varchar(255),@EmailId varchar(255),@MobileNumber bigint,@Password varchar(255)
 As
 Begin
@@ -16,7 +18,7 @@ End;
 
 select * from BookStore;
 
-ALTER PROCEDURE SP_User_Login @EmailId varchar(255)
+create PROCEDURE SP_User_Login @EmailId varchar(255)
 AS
 BEGIN
 select * from BookStore where EmailId = @EmailId ;
@@ -35,7 +37,7 @@ select * from BookStore where EmailId = @EmailId ;
 End;
 
 
-Alter procedure Sp_ResetPassword @EmailId varchar(255),@Password varchar(255)
+create procedure Sp_ResetPassword @EmailId varchar(255),@Password varchar(255)
 AS
 BEGIN
 Update BookStore
